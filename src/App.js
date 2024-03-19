@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import axios from "axios";
+import {BACKEND_BASE_URL} from "./Constants/globalConst";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const getData = () => {
+        axios.get(BACKEND_BASE_URL + "/getAllUsers")
+            .then((res) => {
+                console.log(res)
+            }).catch((err) => {
+            console.log(err)
+        })
+    }
+
+
+    return (
+        <div>s
+            <button onClick={getData}>
+                Click me test
+            </button>
+        </div>
+    );
 }
 
 export default App;
