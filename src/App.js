@@ -4,13 +4,14 @@ import {BACKEND_BASE_URL} from "./Constants/globalConst";
 
 function App() {
     const getData = () => {
+        console.log(BACKEND_BASE_URL)
         axios.get(BACKEND_BASE_URL + "/getAllUsers")
             .then((res) => {
                 console.log(res)
             }).catch((err) => {
             console.log(err)
         })
-        console.log(BACKEND_BASE_URL)
+
     }
 
     return (
