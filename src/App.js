@@ -10,8 +10,8 @@ function App() {
             }).catch((err) => {
             console.log(err)
         })
+        console.log(BACKEND_BASE_URL)
     }
-
 
     return (
         <div>s
