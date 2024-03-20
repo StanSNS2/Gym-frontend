@@ -23,7 +23,7 @@ import {ImExit} from "react-icons/im";
 function Header() {
     return (
         <>
-            <Navbar key={'lg'} expand={'lg'} className=" mb-3 navbarContainer">
+            <Navbar key={'lg'} expand={'lg'} className="  navbarContainer">
                 <Container fluid>
                     <Navbar.Brand href="/">
                         <span className="d-flex align-items-center fw-bolder headerLogo">  <FaDumbbell
