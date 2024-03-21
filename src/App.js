@@ -1,12 +1,11 @@
 import './App.css';
-import Header from "./Component/STATIC/Header";
 import {BrowserRouter} from 'react-router-dom'
-import Hero from "./Component/Hero/Hero";
+import React from 'react'
 import Shop from "./Component/Shop/Shop";
-
+import Header from "./Component/STATIC/Header";
+import Hero from "./Component/Hero/Hero";
 
 function App() {
-
     return (
         <>
             <BrowserRouter>
@@ -15,8 +14,9 @@ function App() {
                 <Hero/>
 
                 <Shop/>
-            </BrowserRouter>
 
+
+            </BrowserRouter>
         </>
     );
 }

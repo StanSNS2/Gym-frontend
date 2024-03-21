@@ -63,7 +63,7 @@
     width: 500px;
     padding: 10px;
     font-size: 16px;
-    border:none;
+    border: none;
     border-bottom: 2px solid #333333;
     outline: none;
     transition: all 0.3s ease;
@@ -73,14 +73,14 @@
     border-bottom-color: #FF5733;
 }
 
-.topShopSection{
+.topShopSection {
     padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.dropDownButtons{
+.dropDownButtons {
     width: 250px;
     display: flex;
     justify-content: space-between;
