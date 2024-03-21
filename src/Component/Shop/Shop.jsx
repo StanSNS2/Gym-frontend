@@ -1,24 +1,8 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Card, Pagination, Button, Dropdown} from 'react-bootstrap';
+import {Button, Card, Col, Container, Dropdown, Pagination, Row} from 'react-bootstrap';
 import "./Shop.css"
-import {FaShoppingCart} from "react-icons/fa";
+import {FaBolt, FaListAlt, FaShoppingCart, FaSort, FaTimes} from "react-icons/fa";
 import {CgDollar} from "react-icons/cg";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 const Shop = () => {
     const products = [
@@ -158,13 +142,29 @@ const Shop = () => {
     ];
 
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState('');
     const productsPerPage = 16;
 
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const filteredProducts = products.filter(product =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+    const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+        setCurrentPage(1);
+    };
+
+    const clearSearch = () => {
+        setSearchQuery('');
+        setCurrentPage(1);
+    };
 
     return (
         <Container>
@@ -173,34 +173,58 @@ const Shop = () => {
                     <h4>Search:</h4>
 
                     <input
+                        maxLength={20}
                         type="text"
                         className="searchInput ms-3"
                         placeholder="Search for product..."
+                        value={searchQuery}
+                        onChange={handleSearchChange}
                     />
+
+                    {searchQuery && (
+                        <Button variant={"dark"} className="inputClearButton fw-bolder ms-2" onClick={clearSearch}>
+                            Clear <FaTimes/>
+                        </Button>
+                    )}
                 </div>
 
                 <div className="dropDownButtons">
-                    <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Category
+                    <Dropdown className="me-3">
+                        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                            <FaBolt className="align-baseline"/>
+                            <span className="ms-1 fw-bolder align-text-bottom">Flash Deals</span>
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">Up to 50% Off</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Up to 30% Off</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Up to 10% Off</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Dropdown className="me-3">
+                        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                            <FaListAlt className="align-baseline"/>
+                            <span className="ms-2 fw-bolder align-text-bottom">Category</span>
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Fat Burners</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Proteins</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Gym equipment</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
 
                     <Dropdown>
-                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                            Order by:
+                        <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                            <FaSort className="align-baseline"/>
+                            <span className="ms-1 fw-bolder align-text-bottom">Order by:</span>
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                            <Dropdown.Item href="#/action-1">Price</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Newest</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Rating</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
                 </div>
@@ -233,6 +257,14 @@ const Shop = () => {
                 ))}
             </Row>
 
+            {filteredProducts.length === 0 && searchQuery && (
+                <Row>
+                    <div className="noResultsMessage">
+                        <span>No products found for:</span>
+                        <span>'{searchQuery}'.</span>
+                    </div>
+                </Row>
+            )}
             <Row>
                 <Col className="d-flex justify-content-center mt-4">
                     <Pagination>
@@ -244,6 +276,8 @@ const Shop = () => {
                     </Pagination>
                 </Col>
             </Row>
+
+
         </Container>
     );
 };

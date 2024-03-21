@@ -44,15 +44,22 @@ function Header() {
                                     className="ms-1">Login</span></span></Nav.Link>
                                 <Nav.Link href="#action2"><span className="navLinkContent"><FaUserPlus/> <span
                                     className="ms-1">Register</span></span></Nav.Link>
-                                <Nav.Link href="#action2"><span className="navLinkContent"><FaShoppingBag/> <span
-                                    className="ms-1">Products</span></span></Nav.Link>
+                                <Nav.Link href="#action2">
+                                     <span className="navLinkContent">
+                                         <FaShoppingBag/>
+                                         <span className="ms-1">Products</span>
+                                     </span><
+                                    /Nav.Link>
                                 <NavDropdown title={<span><FaListAlt
                                     className="align-content-center mb-1 fw-bolder iconCategories"/> <span
                                     className="ms-1">Categories</span></span>} id={`offcanvasNavbarDropdown-expand-lg`}
                                              className="navDropDownTitle">
-                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><FaFire className="me-2"/> Fat Burners</NavDropdown.Item>
-                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><GiCellarBarrels  className="me-2"/> Proteins</NavDropdown.Item>
-                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><GiWeightLiftingUp  className="me-2"/> Gym equipment</NavDropdown.Item>
+                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><FaFire
+                                        className="me-2"/> Fat Burners</NavDropdown.Item>
+                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><GiCellarBarrels
+                                        className="me-2"/> Proteins</NavDropdown.Item>
+                                    <NavDropdown.Item className="navDropDownItem" href="#action3"><GiWeightLiftingUp
+                                        className="me-2"/> Gym equipment</NavDropdown.Item>
                                 </NavDropdown>
                                 <Nav.Link href="#action2"><span className="navLinkContent"><FaTags/> <span
                                     className="ms-1">Deals</span></span></Nav.Link>
@@ -60,7 +67,7 @@ function Header() {
                                     className="ms-1">Track Order</span></span></Nav.Link>
                                 <Nav.Link href="#action2"><span className="navLinkContent"><FaShoppingCart/> <span
                                     className="ms-1">Cart</span></span></Nav.Link>
-                                <Nav.Link href="#action2"><span className="navLinkContent"><ImExit /> <span
+                                <Nav.Link href="#action2"><span className="navLinkContent"><ImExit/> <span
                                     className="ms-1">Logout</span></span></Nav.Link>
                             </Nav>
                         </Offcanvas.Body>

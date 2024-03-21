@@ -74,16 +74,40 @@
 }
 
 .topShopSection {
-    padding: 2rem;
+    padding-bottom: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .dropDownButtons {
-    width: 250px;
     display: flex;
     justify-content: space-between;
 }
 
+.inputClearButton {
+    border-radius: 5px;
+    padding: 0.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 
+.noResultsMessage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    font-size: 50px;
+    color: red;
+}
+
+@media (max-width: 1200px) {
+    .topShopSection {
+        flex-direction: column;
+    }
+
+    .dropDownButtons {
+        margin-top: 1rem;
+    }
+}
