@@ -1,9 +1,9 @@
-import './App.css';
 import {BrowserRouter} from 'react-router-dom'
 import React from 'react'
 import Shop from "./Component/Shop/Shop";
-import Header from "./Component/STATIC/Header";
+import Header from "./Component/STATIC/Header/Header";
 import Hero from "./Component/Hero/Hero";
+import Footer from "./Component/STATIC/Footer/Footer";
 
 function App() {
     return (
@@ -15,7 +15,7 @@ function App() {
 
                 <Shop/>
 
-
+                <Footer/>
             </BrowserRouter>
         </>
     );
