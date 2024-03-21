@@ -41,3 +41,49 @@
     display: flex;
     justify-content: center;
 }
+
+.active > .page-link, .page-link.active {
+    z-index: 3;
+    color: white !important;
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+
+.page-link {
+    color: #333333 !important;
+    font-weight: bold;
+}
+
+.searchInputContainer {
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border:none;
+    border-bottom: 2px solid #333333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+    border-bottom-color: #FF5733;
+}
+
+.topShopSection{
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropDownButtons{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+

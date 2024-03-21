@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Container, Row, Col, Card, Pagination, Button} from 'react-bootstrap';
+import {Container, Row, Col, Card, Pagination, Button, Dropdown} from 'react-bootstrap';
 import "./Shop.css"
 import {FaShoppingCart} from "react-icons/fa";
 import {CgDollar} from "react-icons/cg";
@@ -172,6 +172,45 @@ const Shop = () => {
 
     return (
         <Container>
+            <div className="topShopSection">
+                <div className="searchInputContainer">
+                    <h4>Search:</h4>
+
+                    <input
+                        type="text"
+                        className="searchInput ms-3"
+                        placeholder="Search for product..."
+                    />
+                </div>
+
+                <div className="dropDownButtons">
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            Category
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+
+                    <Dropdown>
+                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                            Order by:
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </div>
+            </div>
+
+
             <Row>
                 {currentProducts.map(product => (
                     <Col md={3} key={product.id} className="mb-4">
@@ -199,7 +238,7 @@ const Shop = () => {
             </Row>
 
             <Row>
-                <Col className="d-flex justify-content-center">
+                <Col className="d-flex justify-content-center mt-4">
                     <Pagination>
                         {Array.from({length: Math.ceil(products.length / productsPerPage)}, (_, i) => (
                             <Pagination.Item key={i + 1} onClick={() => paginate(i + 1)} active={i + 1 === currentPage}>
