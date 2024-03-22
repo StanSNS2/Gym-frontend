@@ -1,0 +1,22 @@
+.loginModal .modal-content {
+    color: white;
+}
+
+.modal-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loginModalClose {
+    width: 25px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.loginModalClose:active {
+    border: 2px solid white;
+
+}
