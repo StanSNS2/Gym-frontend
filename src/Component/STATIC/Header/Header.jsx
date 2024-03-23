@@ -19,14 +19,21 @@ import "./Header.css"
 import {IoLogIn} from "react-icons/io5";
 import {GiCellarBarrels, GiWeightLiftingUp} from "react-icons/gi";
 import {ImExit} from "react-icons/im";
-import LoginModal from "./Modals/LoginModal";
+import LoginModal from "./Modals/Login/LoginModal";
+import TrackOrderModal from "./Modals/TrackOrder/TrackOrder";
 
 function Header() {
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showTrackOrderModal, setShowTrackOrderModal] = useState(false);
 
     const handleLoginModalClose = () => {
         setShowLoginModal(false);
     };
+
+    const handleTrackOrderModalClose = () => {
+        setShowTrackOrderModal(false);
+    };
+
     return (
         <>
             <Navbar key={'lg'} expand={'lg'} className="  navbarContainer">
@@ -82,7 +89,7 @@ function Header() {
                                         <span className="ms-1">Deals</span>
                                     </span>
                                 </Nav.Link>
-                                <Nav.Link href="#action2">
+                                <Nav.Link onClick={() => setShowTrackOrderModal(true)}>
                                     <span className="navLinkContent"><FaTruck/>
                                         <span className="ms-1">Track Order</span>
                                     </span>
@@ -104,6 +111,7 @@ function Header() {
                 </Container>
 
                 <LoginModal show={showLoginModal} handleClose={handleLoginModalClose}/>
+                <TrackOrderModal show={showTrackOrderModal} handleClose={handleTrackOrderModalClose}/>
 
             </Navbar>
         </>

@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Footer.css';
 import {Link} from "react-router-dom";
 import footerHeart from "../../Resources/dumbbell.png"
 import {FaBolt, FaHeart, FaInfoCircle, FaListAlt, FaTruck} from "react-icons/fa";
 import {IoMdMegaphone} from "react-icons/io";
 import {BiSupport} from "react-icons/bi";
+import TrackOrderModal from "../Header/Modals/TrackOrder/TrackOrder";
 
 
 const Footer = () => {
+    const [showTrackOrderModal, setShowTrackOrderModal] = useState(false);
+
+    const handleTrackOrderModalClose = () => {
+        setShowTrackOrderModal(false);
+    };
+
     return (
         <div className="footerSection">
 
@@ -51,13 +58,15 @@ const Footer = () => {
                 <div className="footerActionButtons">
                     <button className="reportProblemButton"><IoMdMegaphone className="mb-1"/> Report</button>
                     <button className="contactUsButton"><BiSupport className="mb-1"/> Contact us</button>
-                    <button className="trackOrderButton"><FaTruck className="mb-1"/> Track order</button>
+                    <button className="trackOrderButton" onClick={() => setShowTrackOrderModal(true)}><FaTruck className="mb-1"/> Track order</button>
                 </div>
             </footer>
 
             <div className="subFooter">
                 <p className="mt-2">© 2024 My future website name. All rights reserved.</p>
             </div>
+
+            <TrackOrderModal show={showTrackOrderModal} handleClose={handleTrackOrderModalClose}/>
         </div>
     );
 }
